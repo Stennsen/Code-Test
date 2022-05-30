@@ -12,14 +12,41 @@ jumpDict = {1: {6, 8},              # this variable stores which numbers are rea
 
 
 def genNumber(start, hops):
-    return -1
+    distinctNumbers = set()
+    number = [start]
+    for i in range(hops):
+        if start == 5:
+            distinctNumbers.add(str(number))
+        else:
+            for j in jumpDict[start]:
+                number.append(j)
+                if i == hops:
+                    distinctNumbers.add(str(number))
+                number.pop()
+    print(distinctNumbers)
+    return len(distinctNumbers)
+
 
 def test():                         # first Test: checks wether n=1 for any given number works
+
     for i in range(10):
-        if genNumber(i, 1) == 1:
+        if genNumber(i, 1) == 2 and i !=5 and i != 4 and i != 6:
             print("Test " + str(i) + " passed")
         else:
             print("Test " + str(i) + " failed")
+    if genNumber(5, 1) == 1:
+        print("Test 5 passed")
+    else:
+        print("Test 5 failed")
 
+    if genNumber(4, 1) == 3:
+        print("Test 4 passed")
+    else:
+        print("Test 4 failed")
+
+    if genNumber(6, 1) == 3:
+        print("Test 4 passed")
+    else:
+        print("Test 4 failed")
 
 test()
