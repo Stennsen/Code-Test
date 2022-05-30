@@ -20,33 +20,16 @@ def genNumber(start, hops):
         else:
             for j in jumpDict[start]:
                 number.append(j)
-                print(number)
                 if i == hops-1:
                     distinctNumbers.add(str(number))
                 number.pop()
     return len(distinctNumbers)
 
 
-def test():                         # first Test: checks wether n=1 for any given number works
-
-    for i in range(10):
-        if genNumber(i, 1) == 2:
-            print("Test " + str(i) + " passed")
-        else:
-            print("Test " + str(i) + " failed")
-    if genNumber(5, 1) == 1:
-        print("Test 5 passed")
+def test():                             # second Test: checks wether n=2 for start=1 works - it should be 4 distinct numbers
+    if genNumber(1, 2) == 4:
+        print("Test passed")
     else:
-        print("Test 5 failed")
-
-    if genNumber(4, 1) == 3:
-        print("Test 4 passed")
-    else:
-        print("Test 4 failed")
-
-    if genNumber(6, 1) == 3:
-        print("Test 4 passed")
-    else:
-        print("Test 4 failed")
+        print("Test failed")
 
 test()
