@@ -11,7 +11,7 @@ jumpDict = {1: {6, 8},              # this variable stores which numbers are rea
 
 
 
-def genNumber(start, hops):
+def getDisctinctNumbers(start, hops):
     distinctNumbers = set()
     number = [start]
     for i in range(hops):
@@ -27,7 +27,7 @@ def genNumber(start, hops):
 
 
 def test():                             # second Test: checks wether n=2 for start=1 works - it should be 4 distinct numbers
-    if genNumber(1, 2) == 4:
+    if getDisctinctNumbers(start, hops)(1, 2) == 4:
         print("Test passed")
     else:
         print("Test failed")
